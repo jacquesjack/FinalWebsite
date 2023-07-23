@@ -2,6 +2,7 @@ import {Container, Row, Col, Form, Button, Table} from 'react-bootstrap'
 import './Home.css'
 import {data} from './data.js'
 import { useState } from 'react'
+import article from './samplearticle.pdf' 
 
 function regexTester(str){
         let regex = /(0[1-9]|1[0,1,2])\/(0[1-9]|[12][0-9]|3[01])\/(17|18|19|20)\d{2}/;
@@ -25,6 +26,22 @@ function dateValue(str){
 //}
 
 const Research = () => {
+
+
+    const onButtonClick = () => {
+        // using Java Script method to get PDF file
+        fetch('samplearticle.pdf').then(response => {
+            response.blob().then(blob => {
+                // Creating new object of PDF file
+                const fileURL = window.URL.createObjectURL(blob);
+                // Setting various property values
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = 'samplearticle.pdf';
+                alink.click();
+            })
+        })
+    }
 
     const [title,setTitle] = useState('')
     const [startDate,setStartDate] = useState('')
@@ -54,6 +71,7 @@ const Research = () => {
         <Container className="text-light text-start p-5">
             <p>The Reseacher has 6 search parameters to use to refine your search. You may choose to fill all of them or none of them.
                 The search options allow you to select which newspaper publication to search through, which date to start looking and which date to stop looking, Which Keywords to prioritize, Which Author's articles to search and which article type to search. Be careful to correctly input the date as mm/dd/yyyy. The website won't break but it will simply ignore a date put in an incorrect format.
+                Once you have found the article you are looking for click the download button and begin reading right away.
             </p>
         </Container>
         <Container className="bg-dark pt-4">
@@ -137,6 +155,7 @@ const Research = () => {
                     <th>Author</th>
                     <th>Publication</th>
                     <th>Article Type</th>
+                    <th>Download Article</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -157,6 +176,13 @@ const Research = () => {
                             <td>{item.author}</td>
                             <td>{item.publication}</td>
                             <td>{item.article_type}</td>
+                            <td classname="text-center">
+                                <a href={article}
+                                download="samplearticle-PDF-document"
+                                target="_blank"
+                                rel="noreferrer">
+                                <Button variant="light">Download</Button>
+                            </a></td>
                         </tr>
                     ))}
                 </tbody>

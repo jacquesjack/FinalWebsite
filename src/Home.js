@@ -24,7 +24,7 @@ const Home = () => {
             <div className="bg-secondary py-2">
             <Container>
                 <Row id="banner">
-                    <Col className='py-4 bg-secondary'>
+                    <Col className='py-4 bg-secondary' aria-label="Title and Subtitle">
                         <h1>{content.Title}</h1>
                         <h5>{content.Subtitle}</h5>
                     </Col>
@@ -34,9 +34,9 @@ const Home = () => {
 
             <Container>
                 <Row>
-                    <Col>
-                        <p>Select the type of article</p>
-                        <Form.Select  value={language} onChange={(e)=>{setLanguage(e.target.value)}} aria-label="Default select example">
+                    <Col className="pt-3">
+                        
+                        <Form.Select  value={language} onChange={(e)=>{setLanguage(e.target.value)}} aria-label="Language Selector English French">
                                 <option>English</option>
                                 <option value="Français">Français</option>
                         </Form.Select>
@@ -50,9 +50,9 @@ const Home = () => {
                 </Row>
             </Container>
             
-            <Container className="bg-dark py-4">
-                <Row>
-                    <Col md={6} className="text-light" >
+            <Container className="bg-dark py-4" aria-label="home page text and image">
+                <Row >
+                    <Col md={6} className="text-light " >
                         <p id="textbox">{content.textbox1}</p>
                         <p>
 
@@ -62,7 +62,7 @@ const Home = () => {
                         </p>
                     </Col>
                     <Col md={6}>
-                        <img src={lib} alt="Logo" id="lib"/>
+                        <img src={lib} alt="Pictured is the interior of a large libary" id="lib"/>
                     </Col>
                 </Row>
             </Container>
