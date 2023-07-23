@@ -1,0 +1,12 @@
+#banner{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+#lib{
+    width: 550px;
+    height: auto;
+}
+#textbox{
+    font-size: large;
+    text-align: left;
+}
