@@ -69,7 +69,7 @@ const Research = () => {
         </Container>
         </div>
         <Container className="text-light text-start p-5">
-            <p>There are 6 search parameters to use to refine your search. You may choose to fill all of them or none of them.
+            <p id="textbox">There are 6 search parameters to use to refine your search. You may choose to fill all of them or none of them.
                 The search options allow you to select which newspaper publication to search through, which date to start looking and which date to stop looking, Which Keywords to prioritize, Which Author's articles to search and which article type to search. Be careful to correctly input the date as mm/dd/yyyy. The website won't break but it will simply ignore a date put in an incorrect format.
                 Once you have found the article you are looking for click the download button and begin reading right away.
             </p>
